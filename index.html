@@ -6,6 +6,15 @@
 		<link ref='style' href='css/style.css'>
 	</head>
 	<body>
-		<h1>Hello World !</h1>
+		<h1> Hello World ! </h1>
+		<p>
+Hosting some simple static content
+$ docker run --name some-nginx -v /some/content:/usr/share/nginx/html:ro -d nginx
+Alternatively, a simple Dockerfile can be used to generate a new image that includes the necessary content (which is a much cleaner solution than the bind mount above):
+
+FROM nginx
+COPY static-html-directory /usr/share/nginx/html
+Place this file in the same directory as your directory of content ("static-html-directory"), run docker build -t some-content-nginx ., then start your container:
+		</p>
 	</body>
 </html>
